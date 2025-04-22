@@ -1,0 +1,123 @@
+<svg width="500" height="350" viewBox="0 0 500 350" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background elements -->
+  <rect width="500" height="350" rx="10" fill="white" fill-opacity="0.05"/>
+  
+  <!-- Decorative elements -->
+  <circle cx="70" cy="70" r="30" fill="url(#paint_circle1)" fill-opacity="0.5"/>
+  <circle cx="430" cy="280" r="40" fill="url(#paint_circle2)" fill-opacity="0.4"/>
+  <path d="M420 70C440 50 480 90 460 120" stroke="#3B82F6" stroke-width="2" stroke-dasharray="4 4" stroke-opacity="0.6"/>
+  <path d="M50 270C70 290 120 270 140 290" stroke="#10B981" stroke-width="2" stroke-dasharray="4 4" stroke-opacity="0.6"/>
+
+  <!-- Main elements -->
+  <!-- Team collaboration illustration -->
+  <!-- Central connecting circle -->
+  <circle cx="250" cy="175" r="30" fill="url(#paint_central)" stroke="white" stroke-opacity="0.6" stroke-width="2"/>
+  
+  <!-- Team member circles connected to center -->
+  <!-- Member 1 -->
+  <circle cx="150" cy="120" r="22" fill="url(#paint_member1)"/>
+  <path d="M172 130L230 155" stroke="white" stroke-opacity="0.8" stroke-width="2"/>
+  <circle cx="150" cy="120" r="25" stroke="white" stroke-opacity="0.3" stroke-width="1.5" stroke-dasharray="3 3"/>
+  
+  <!-- Member 2 -->
+  <circle cx="170" cy="230" r="22" fill="url(#paint_member2)"/>
+  <path d="M190 217L230 190" stroke="white" stroke-opacity="0.8" stroke-width="2"/>
+  <circle cx="170" cy="230" r="25" stroke="white" stroke-opacity="0.3" stroke-width="1.5" stroke-dasharray="3 3"/>
+  
+  <!-- Member 3 -->
+  <circle cx="350" cy="140" r="22" fill="url(#paint_member3)"/>
+  <path d="M330 153L275 170" stroke="white" stroke-opacity="0.8" stroke-width="2"/>
+  <circle cx="350" cy="140" r="25" stroke="white" stroke-opacity="0.3" stroke-width="1.5" stroke-dasharray="3 3"/>
+  
+  <!-- Member 4 -->
+  <circle cx="330" cy="230" r="22" fill="url(#paint_member4)"/>
+  <path d="M310 215L275 190" stroke="white" stroke-opacity="0.8" stroke-width="2"/>
+  <circle cx="330" cy="230" r="25" stroke="white" stroke-opacity="0.3" stroke-width="1.5" stroke-dasharray="3 3"/>
+  
+  <!-- Person silhouettes in circles -->
+  <!-- Central -->
+  <path d="M250 165C247 165 245 167 245 170C245 173 247 175 250 175C253 175 255 173 255 170C255 167 253 165 250 165Z" fill="white"/>
+  <path d="M258 185C258 180 255 176 250 176C245 176 242 180 242 185L244 188C245 189 247 190 250 190C253 190 255 189 256 188L258 185Z" fill="white"/>
+  
+  <!-- Member 1 -->
+  <path d="M150 112C147.5 112 145.5 114 145.5 116.5C145.5 119 147.5 121 150 121C152.5 121 154.5 119 154.5 116.5C154.5 114 152.5 112 150 112Z" fill="white"/>
+  <path d="M156.5 127C156.5 123 153.5 120 150 120C146.5 120 143.5 123 143.5 127L145 129C146 130 148 131 150 131C152 131 154 130 155 129L156.5 127Z" fill="white"/>
+  
+  <!-- Member 2 -->
+  <path d="M170 222C167.5 222 165.5 224 165.5 226.5C165.5 229 167.5 231 170 231C172.5 231 174.5 229 174.5 226.5C174.5 224 172.5 222 170 222Z" fill="white"/>
+  <path d="M176.5 237C176.5 233 173.5 230 170 230C166.5 230 163.5 233 163.5 237L165 239C166 240 168 241 170 241C172 241 174 240 175 239L176.5 237Z" fill="white"/>
+  
+  <!-- Member 3 -->
+  <path d="M350 132C347.5 132 345.5 134 345.5 136.5C345.5 139 347.5 141 350 141C352.5 141 354.5 139 354.5 136.5C354.5 134 352.5 132 350 132Z" fill="white"/>
+  <path d="M356.5 147C356.5 143 353.5 140 350 140C346.5 140 343.5 143 343.5 147L345 149C346 150 348 151 350 151C352 151 354 150 355 149L356.5 147Z" fill="white"/>
+  
+  <!-- Member 4 -->
+  <path d="M330 222C327.5 222 325.5 224 325.5 226.5C325.5 229 327.5 231 330 231C332.5 231 334.5 229 334.5 226.5C334.5 224 332.5 222 330 222Z" fill="white"/>
+  <path d="M336.5 237C336.5 233 333.5 230 330 230C326.5 230 323.5 233 323.5 237L325 239C326 240 328 241 330 241C332 241 334 240 335 239L336.5 237Z" fill="white"/>
+  
+  <!-- UI Document Elements -->
+  <!-- Left document -->
+  <rect x="80" y="160" width="50" height="70" rx="3" fill="white" fill-opacity="0.15" stroke="white" stroke-opacity="0.5"/>
+  <rect x="87" y="170" width="36" height="4" rx="1" fill="white" fill-opacity="0.6"/>
+  <rect x="87" y="180" width="28" height="4" rx="1" fill="white" fill-opacity="0.6"/>
+  <rect x="87" y="190" width="36" height="4" rx="1" fill="white" fill-opacity="0.6"/>
+  <rect x="87" y="200" width="20" height="4" rx="1" fill="white" fill-opacity="0.6"/>
+  <rect x="87" y="210" width="30" height="4" rx="1" fill="white" fill-opacity="0.6"/>
+  
+  <!-- Right document -->
+  <rect x="370" y="160" width="50" height="70" rx="3" fill="white" fill-opacity="0.15" stroke="white" stroke-opacity="0.5"/>
+  <path d="M380 185L400 185" stroke="white" stroke-opacity="0.6" stroke-width="2" stroke-linecap="round"/>
+  <path d="M380 195L395 195" stroke="white" stroke-opacity="0.6" stroke-width="2" stroke-linecap="round"/>
+  <path d="M380 205L390 205" stroke="white" stroke-opacity="0.6" stroke-width="2" stroke-linecap="round"/>
+  <path d="M395 170L390 175L385 170" stroke="white" stroke-opacity="0.6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  
+  <!-- Bottom document -->
+  <rect x="210" y="250" width="80" height="50" rx="3" fill="white" fill-opacity="0.15" stroke="white" stroke-opacity="0.5"/>
+  <rect x="220" y="260" width="60" height="5" rx="1" fill="white" fill-opacity="0.6"/>
+  <rect x="220" y="272" width="40" height="5" rx="1" fill="white" fill-opacity="0.6"/>
+  <rect x="220" y="284" width="50" height="5" rx="1" fill="white" fill-opacity="0.6"/>
+  
+  <!-- MPB text overlay -->
+  <path d="M245 85H255" stroke="white" stroke-width="3" stroke-linecap="round"/>
+  <path d="M235 95L265 95" stroke="white" stroke-width="2" stroke-linecap="round"/>
+  <path d="M230 105L270 105" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+  <text x="240" y="75" font-family="sans-serif" font-size="12" fill="white" font-weight="bold">MPB</text>
+  
+  <!-- Gradients -->
+  <defs>
+    <linearGradient id="paint_central" x1="230" y1="145" x2="270" y2="195" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#3B82F6"/>
+      <stop offset="1" stop-color="#10B981"/>
+    </linearGradient>
+    
+    <linearGradient id="paint_member1" x1="135" y1="105" x2="165" y2="135" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#3B82F6"/>
+      <stop offset="0.5" stop-color="#6366F1"/>
+    </linearGradient>
+    
+    <linearGradient id="paint_member2" x1="155" y1="215" x2="185" y2="245" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#6366F1"/>
+      <stop offset="1" stop-color="#10B981"/>
+    </linearGradient>
+    
+    <linearGradient id="paint_member3" x1="335" y1="125" x2="365" y2="155" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#10B981"/>
+      <stop offset="1" stop-color="#3B82F6"/>
+    </linearGradient>
+    
+    <linearGradient id="paint_member4" x1="315" y1="215" x2="345" y2="245" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#8B5CF6"/>
+      <stop offset="1" stop-color="#3B82F6"/>
+    </linearGradient>
+    
+    <linearGradient id="paint_circle1" x1="50" y1="50" x2="90" y2="90" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#3B82F6"/>
+      <stop offset="1" stop-color="#8B5CF6"/>
+    </linearGradient>
+    
+    <linearGradient id="paint_circle2" x1="400" y1="250" x2="460" y2="310" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#10B981"/>
+      <stop offset="1" stop-color="#3B82F6"/>
+    </linearGradient>
+  </defs>
+</svg> 

@@ -15,7 +15,7 @@ interface HeaderProps {
 const Header: React.FC<HeaderProps> = ({ className = "" }) => {
   const navItems = [
     { label: "Home", href: "/" },
-    { label: "Tentang", href: "/tentang" },
+    { label: "Tentang Kami", href: "/tentang-kami" },
     { label: "Kontak", href: "/kontak" },
   ];
 
