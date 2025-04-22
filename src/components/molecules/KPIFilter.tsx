@@ -5,6 +5,7 @@
  */
 import React from "react";
 import { DimensiKPI, KuartilStatus, FilterOptions } from "@/interfaces/kpi";
+import { IoChevronDownOutline } from "react-icons/io5";
 
 interface KPIFilterProps {
   filters: FilterOptions;
@@ -48,55 +49,77 @@ const KPIFilter: React.FC<KPIFilterProps> = ({
     <div
       className={`flex flex-col sm:flex-row gap-4 items-center ${className}`}
     >
-      <div>
+      <div className="relative">
         <label
           htmlFor="dimensi-filter"
           className="block text-sm font-medium text-gray-700 mb-1"
         >
           Dimensi
         </label>
-        <select
-          id="dimensi-filter"
-          value={filters.dimensi || ""}
-          onChange={handleDimensiChange}
-          className="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md"
-        >
-          <option value="">Semua Dimensi</option>
-          {Object.values(DimensiKPI).map((dimensi) => (
-            <option key={dimensi} value={dimensi}>
-              {dimensi}
-            </option>
-          ))}
-        </select>
+        <div className="relative">
+          <select
+            id="dimensi-filter"
+            value={filters.dimensi || ""}
+            onChange={handleDimensiChange}
+            className="block w-full pl-3 pr-10 py-2 text-base border border-gray-300 rounded-md
+            appearance-none bg-white
+            focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500
+            hover:border-blue-400 transition-colors duration-200
+            shadow-sm text-gray-800"
+          >
+            <option value="">Semua Dimensi</option>
+            {Object.values(DimensiKPI).map((dimensi) => (
+              <option key={dimensi} value={dimensi}>
+                {dimensi}
+              </option>
+            ))}
+          </select>
+          <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-500">
+            <IoChevronDownOutline className="h-4 w-4" />
+          </div>
+        </div>
       </div>
 
-      <div>
+      <div className="relative">
         <label
           htmlFor="status-filter"
           className="block text-sm font-medium text-gray-700 mb-1"
         >
           Status
         </label>
-        <select
-          id="status-filter"
-          value={filters.kuartil || ""}
-          onChange={handleStatusChange}
-          className="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md"
-        >
-          <option value="">Semua Status</option>
-          {Object.values(KuartilStatus).map((status) => (
-            <option key={status} value={status}>
-              {status}
-            </option>
-          ))}
-        </select>
+        <div className="relative">
+          <select
+            id="status-filter"
+            value={filters.kuartil || ""}
+            onChange={handleStatusChange}
+            className="block w-full pl-3 pr-10 py-2 text-base border border-gray-300 rounded-md
+            appearance-none bg-white
+            focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500
+            hover:border-blue-400 transition-colors duration-200
+            shadow-sm text-gray-800"
+          >
+            <option value="">Semua Status</option>
+            {Object.values(KuartilStatus).map((status) => (
+              <option key={status} value={status}>
+                {status}
+              </option>
+            ))}
+          </select>
+          <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-500">
+            <IoChevronDownOutline className="h-4 w-4" />
+          </div>
+        </div>
       </div>
 
       <div className="self-end">
         <button
           type="button"
           onClick={handleReset}
-          className="inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+          className="inline-flex items-center px-4 py-2 border border-gray-300 rounded-md 
+          text-sm font-medium text-gray-700 bg-white 
+          hover:bg-gray-50 hover:border-gray-400 
+          focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500
+          transition-colors duration-200 shadow-sm"
         >
           Reset Filter
         </button>
