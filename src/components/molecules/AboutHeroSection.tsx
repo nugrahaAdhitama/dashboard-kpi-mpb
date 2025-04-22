@@ -7,6 +7,7 @@
  */
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import Breadcrumb from "@/components/atoms/Breadcrumb";
 
@@ -44,58 +45,82 @@ const AboutHeroSection: React.FC<AboutHeroSectionProps> = ({
         {/* Breadcrumb navigation */}
         <Breadcrumb items={breadcrumbItems} className="mb-12" />
 
-        <div className="max-w-3xl">
-          {/* Main headline with animation */}
-          <motion.h1
-            className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#1F2937] leading-tight mb-6"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            Inovasi Akademik untuk Transformasi Proses Bisnis
-          </motion.h1>
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-16">
+          <div className="w-full lg:w-1/2">
+            {/* Main headline with animation */}
+            <motion.h1
+              className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#1F2937] leading-tight mb-6"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+            >
+              Inovasi Akademik untuk Transformasi Proses Bisnis
+            </motion.h1>
 
-          {/* Subheadline with animation */}
-          <motion.p
-            className="text-lg text-[#4B5563] mb-8"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            Dasbor KPI interaktif ini dikembangkan sebagai bagian dari proyek
-            Ujian Tengah Semester mata kuliah Manajemen Proses Bisnis di
-            Universitas Indonesia.
-          </motion.p>
+            {/* Subheadline with animation */}
+            <motion.p
+              className="text-lg text-[#4B5563] mb-8"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
+              Dasbor KPI interaktif ini dikembangkan sebagai bagian dari proyek
+              Ujian Tengah Semester mata kuliah Manajemen Proses Bisnis di
+              Universitas Indonesia.
+            </motion.p>
 
-          {/* CTA button with animation */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-          >
-            <Link href="/">
-              <motion.button
-                className="px-6 py-3 bg-gradient-to-r from-[#3B82F6] to-[#10B981] hover:from-[#2563EB] hover:to-[#059669] text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex items-center gap-2"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                Lihat Dashboard KPI
-                <svg
-                  className="w-5 h-5"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
+            {/* CTA button with animation */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+            >
+              <Link href="/">
+                <motion.button
+                  className="px-6 py-3 bg-gradient-to-r from-[#3B82F6] to-[#10B981] hover:from-[#2563EB] hover:to-[#059669] text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex items-center gap-2"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M14 5l7 7m0 0l-7 7m7-7H3"
-                  ></path>
-                </svg>
-              </motion.button>
-            </Link>
+                  Lihat Dashboard KPI
+                  <svg
+                    className="w-5 h-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M14 5l7 7m0 0l-7 7m7-7H3"
+                    ></path>
+                  </svg>
+                </motion.button>
+              </Link>
+            </motion.div>
+          </div>
+
+          {/* New illustration with glassmorphism and animation */}
+          <motion.div
+            className="w-full lg:w-1/2 flex justify-center"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+          >
+            <div className="relative p-1 rounded-2xl bg-gradient-to-br from-[#3B82F6]/50 to-[#10B981]/50">
+              <div className="absolute inset-0 bg-white/30 backdrop-blur-lg rounded-2xl"></div>
+              <div className="relative p-6 backdrop-blur-md rounded-xl overflow-hidden">
+                <Image
+                  src="/about-hero.svg"
+                  alt="Team Collaboration Illustration"
+                  width={500}
+                  height={350}
+                  className="object-contain relative z-10 drop-shadow-lg"
+                  priority
+                />
+              </div>
+            </div>
           </motion.div>
         </div>
       </div>
