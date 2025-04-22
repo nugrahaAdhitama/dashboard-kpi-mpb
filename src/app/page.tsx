@@ -4,8 +4,9 @@ import { pobs, howToSteps } from "./data";
 export default function Home() {
   return (
     <LandingPage
-      heroTitle="Dashboard KPI Prosedur Operasional Baku"
-      heroDescription="Pantau dan analisis indikator kinerja untuk memastikan operasional yang efektif dan efisien."
+      heroTitle="Transformasi Pengukuran Kinerja Menjadi Keputusan yang Lebih Baik"
+      heroDescription="Dasbor KPI interaktif yang memudahkan Anda menganalisis, memvisualisasikan, dan mengoptimalkan proses bisnis akademik. Pantau pencapaian, identifikasi area perbaikan, dan ambil keputusan berbasis data dengan cepat dan tepat."
+      heroButtonText="Lihat Dashboard KPI Sekarang"
       pobSectionTitle="Pilih Prosedur Operasional Baku"
       pobs={pobs}
       howToSectionTitle="Cara Menggunakan Dashboard KPI"
