@@ -7,6 +7,7 @@ import React, { useState } from "react";
 import { KPI } from "@/interfaces/kpi";
 import StatusBadge from "@/components/atoms/StatusBadge";
 import { formatAchievement } from "@/app/pob/penjaminan-mutu-akademik/utils";
+import { IoCaretDown, IoCaretUp } from "react-icons/io5";
 
 interface KPITableProps {
   kpis: KPI[];
@@ -32,25 +33,47 @@ const KPITable: React.FC<KPITableProps> = ({
   };
 
   const sortedKPIs = [...kpis].sort((a, b) => {
-    let valA: string | number = (a[sortField] as string | number) || "";
-    let valB: string | number = (b[sortField] as string | number) || "";
+    let valA = a[sortField];
+    let valB = b[sortField];
 
-    // Convert to string for comparison if not already
-    if (typeof valA === "number" || typeof valB === "number") {
-      valA = valA.toString();
-      valB = valB.toString();
+    // Handle numeric sorting for ID, target, and pencapaian
+    if (
+      sortField === "id" ||
+      sortField === "target" ||
+      sortField === "pencapaian"
+    ) {
+      const numA =
+        typeof valA === "string" ? parseFloat(valA) : (valA as number);
+      const numB =
+        typeof valB === "string" ? parseFloat(valB) : (valB as number);
+
+      if (!isNaN(numA) && !isNaN(numB)) {
+        return sortDirection === "asc" ? numA - numB : numB - numA;
+      }
     }
 
-    if (sortDirection === "asc") {
-      return valA.localeCompare(valB as string);
-    } else {
-      return valB.localeCompare(valA as string);
-    }
+    // Convert to string for comparison if not already (for string fields)
+    valA = valA?.toString() || "";
+    valB = valB?.toString() || "";
+
+    return sortDirection === "asc"
+      ? valA.localeCompare(valB, undefined, {
+          numeric: true,
+          sensitivity: "base",
+        })
+      : valB.localeCompare(valA, undefined, {
+          numeric: true,
+          sensitivity: "base",
+        });
   });
 
   const getSortIndicator = (field: keyof KPI) => {
     if (field !== sortField) return null;
-    return sortDirection === "asc" ? "↑" : "↓";
+    return sortDirection === "asc" ? (
+      <IoCaretUp className="inline-block ml-1 text-blue-500 transition-transform duration-200 ease-in-out" />
+    ) : (
+      <IoCaretDown className="inline-block ml-1 text-blue-500 transition-transform duration-200 ease-in-out" />
+    );
   };
 
   return (
@@ -60,45 +83,93 @@ const KPITable: React.FC<KPITableProps> = ({
           <tr>
             <th
               scope="col"
-              className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer"
+              className={`px-6 py-3 text-left text-xs font-medium uppercase tracking-wider cursor-pointer transition-colors duration-200
+                ${
+                  sortField === "id"
+                    ? "text-blue-600 bg-blue-50"
+                    : "text-gray-500 hover:bg-gray-100"
+                }`}
               onClick={() => handleSort("id")}
             >
-              No {getSortIndicator("id")}
+              <div className="flex items-center">
+                <span>No</span>
+                {getSortIndicator("id")}
+              </div>
             </th>
             <th
               scope="col"
-              className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer"
+              className={`px-6 py-3 text-left text-xs font-medium uppercase tracking-wider cursor-pointer transition-colors duration-200
+                ${
+                  sortField === "nama"
+                    ? "text-blue-600 bg-blue-50"
+                    : "text-gray-500 hover:bg-gray-100"
+                }`}
               onClick={() => handleSort("nama")}
             >
-              Nama KPI {getSortIndicator("nama")}
+              <div className="flex items-center">
+                <span>Nama KPI</span>
+                {getSortIndicator("nama")}
+              </div>
             </th>
             <th
               scope="col"
-              className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer"
+              className={`px-6 py-3 text-left text-xs font-medium uppercase tracking-wider cursor-pointer transition-colors duration-200
+                ${
+                  sortField === "dimensi"
+                    ? "text-blue-600 bg-blue-50"
+                    : "text-gray-500 hover:bg-gray-100"
+                }`}
               onClick={() => handleSort("dimensi")}
             >
-              Dimensi {getSortIndicator("dimensi")}
+              <div className="flex items-center">
+                <span>Dimensi</span>
+                {getSortIndicator("dimensi")}
+              </div>
             </th>
             <th
               scope="col"
-              className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer"
+              className={`px-6 py-3 text-left text-xs font-medium uppercase tracking-wider cursor-pointer transition-colors duration-200
+                ${
+                  sortField === "target"
+                    ? "text-blue-600 bg-blue-50"
+                    : "text-gray-500 hover:bg-gray-100"
+                }`}
               onClick={() => handleSort("target")}
             >
-              Target {getSortIndicator("target")}
+              <div className="flex items-center">
+                <span>Target</span>
+                {getSortIndicator("target")}
+              </div>
             </th>
             <th
               scope="col"
-              className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer"
+              className={`px-6 py-3 text-left text-xs font-medium uppercase tracking-wider cursor-pointer transition-colors duration-200
+                ${
+                  sortField === "pencapaian"
+                    ? "text-blue-600 bg-blue-50"
+                    : "text-gray-500 hover:bg-gray-100"
+                }`}
               onClick={() => handleSort("pencapaian")}
             >
-              Pencapaian {getSortIndicator("pencapaian")}
+              <div className="flex items-center">
+                <span>Pencapaian</span>
+                {getSortIndicator("pencapaian")}
+              </div>
             </th>
             <th
               scope="col"
-              className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer"
+              className={`px-6 py-3 text-left text-xs font-medium uppercase tracking-wider cursor-pointer transition-colors duration-200
+                ${
+                  sortField === "status"
+                    ? "text-blue-600 bg-blue-50"
+                    : "text-gray-500 hover:bg-gray-100"
+                }`}
               onClick={() => handleSort("status")}
             >
-              Status {getSortIndicator("status")}
+              <div className="flex items-center">
+                <span>Status</span>
+                {getSortIndicator("status")}
+              </div>
             </th>
             <th
               scope="col"
@@ -111,7 +182,10 @@ const KPITable: React.FC<KPITableProps> = ({
         <tbody className="bg-white divide-y divide-gray-200">
           {sortedKPIs.map((kpi) => {
             return (
-              <tr key={kpi.id} className="hover:bg-gray-50">
+              <tr
+                key={kpi.id}
+                className="hover:bg-gray-50 transition-colors duration-150"
+              >
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                   {kpi.id}
                 </td>
@@ -138,7 +212,7 @@ const KPITable: React.FC<KPITableProps> = ({
                 <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                   <button
                     onClick={() => onEdit(kpi)}
-                    className="text-blue-600 hover:text-blue-900"
+                    className="text-blue-600 hover:text-blue-900 transition-colors duration-200"
                   >
                     Edit
                   </button>
