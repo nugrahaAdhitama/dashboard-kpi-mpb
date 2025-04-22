@@ -7,6 +7,7 @@
  */
 import React from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { TeamMember, Lecturer } from "@/interfaces/team";
 import TeamMemberCard from "@/components/atoms/TeamMemberCard";
 import LecturerCard from "@/components/atoms/LecturerCard";
@@ -45,7 +46,7 @@ const TeamSection: React.FC<TeamSectionProps> = ({
           className="mb-12"
         />
 
-        {/* Team photo placeholder with glassmorphism */}
+        {/* Team photo collage with glassmorphism */}
         <motion.div
           className="w-full max-w-3xl mx-auto mb-16 relative rounded-xl overflow-hidden"
           initial={{ opacity: 0, y: 30 }}
@@ -56,48 +57,32 @@ const TeamSection: React.FC<TeamSectionProps> = ({
           <div className="absolute inset-0 bg-gradient-to-br from-[#3B82F6]/20 to-[#10B981]/20 backdrop-blur-md z-0 border border-white/20" />
 
           <div className="relative pt-[56.25%]">
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="text-center p-8 relative z-10">
-                <motion.div
-                  className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-r from-[#3B82F6] to-[#10B981] flex items-center justify-center"
-                  initial={{ scale: 0 }}
-                  whileInView={{ scale: 1 }}
-                  transition={{ type: "spring", stiffness: 200, delay: 0.3 }}
-                  viewport={{ once: true }}
-                >
-                  <svg
-                    className="w-8 h-8 text-white"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
+            <div className="absolute inset-0 p-4 md:p-8 flex items-center justify-center">
+              <div className="grid grid-cols-2 gap-4 w-full h-full">
+                {teamMembers.map((member, index) => (
+                  <motion.div
+                    key={member.nim}
+                    className="relative overflow-hidden rounded-lg"
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: 0.1 * index, duration: 0.5 }}
+                    viewport={{ once: true }}
                   >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
-                    ></path>
-                  </svg>
-                </motion.div>
-                <motion.h3
-                  className="text-xl font-bold text-[#1F2937] mb-2"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.4 }}
-                  viewport={{ once: true }}
-                >
-                  Kelompok MPB
-                </motion.h3>
-                <motion.p
-                  className="text-[#4B5563]"
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  transition={{ delay: 0.5 }}
-                  viewport={{ once: true }}
-                >
-                  Foto tim akan ditampilkan di sini
-                </motion.p>
+                    <div className="aspect-square relative">
+                      <Image
+                        src={member.image || "/placeholder-avatar.png"}
+                        alt={member.name}
+                        fill
+                        className="object-cover"
+                      />
+                      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent px-2 pt-8 pb-2">
+                        <p className="text-white text-xs font-medium truncate">
+                          {member.name}
+                        </p>
+                      </div>
+                    </div>
+                  </motion.div>
+                ))}
               </div>
             </div>
           </div>

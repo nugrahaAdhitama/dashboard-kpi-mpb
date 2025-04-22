@@ -39,26 +39,21 @@ const TeamMemberCard: React.FC<TeamMemberCardProps> = ({
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay }}
       viewport={{ once: true }}
+      whileHover={{ y: -5 }}
     >
       {/* Glassmorphism card effect */}
       <div className="absolute inset-0 bg-gradient-to-br from-white/40 to-white/10 backdrop-blur-lg z-0 border border-white/20 shadow-lg" />
 
       <div className="relative p-6 z-10">
         <div className="flex flex-col items-center text-center">
-          {/* Avatar with placeholder if no image provided */}
-          <div className="relative w-28 h-28 rounded-full overflow-hidden mb-4 bg-gradient-to-br from-[#3B82F6]/20 to-[#10B981]/20">
-            {member.image ? (
-              <Image
-                src={member.image}
-                alt={member.name}
-                fill
-                className="object-cover"
-              />
-            ) : (
-              <div className="w-full h-full flex items-center justify-center text-3xl font-bold text-[#3B82F6]">
-                {member.name.charAt(0)}
-              </div>
-            )}
+          {/* Avatar with profile picture */}
+          <div className="relative w-28 h-28 rounded-full overflow-hidden mb-4 bg-gradient-to-br from-[#3B82F6]/20 to-[#10B981]/20 shadow-lg border-2 border-white/30">
+            <Image
+              src={member.image || "/placeholder-avatar.png"}
+              alt={member.name}
+              fill
+              className="object-cover transition-transform hover:scale-110 duration-300"
+            />
           </div>
 
           {/* Member details with subtle animations */}
@@ -73,7 +68,7 @@ const TeamMemberCard: React.FC<TeamMemberCardProps> = ({
           </motion.h3>
 
           <motion.p
-            className="text-sm text-[#4B5563] mb-2"
+            className="text-sm text-[#4B5563] mb-3"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ delay: delay + 0.2 }}

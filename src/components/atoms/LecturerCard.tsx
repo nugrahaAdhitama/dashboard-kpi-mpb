@@ -33,27 +33,28 @@ const LecturerCard: React.FC<LecturerCardProps> = ({
       whileInView={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.6 }}
       viewport={{ once: true }}
+      whileHover={{ y: -5 }}
     >
       {/* Glassmorphism card effect with special gradient for lecturer */}
       <div className="absolute inset-0 bg-gradient-to-br from-[#8B5CF6]/30 to-[#3B82F6]/20 backdrop-blur-lg z-0 border border-white/20 shadow-lg" />
 
-      <div className="relative p-6 z-10">
+      <div className="relative p-8 z-10">
         <div className="flex flex-col items-center text-center">
-          {/* Avatar with placeholder if no image provided */}
-          <div className="relative w-32 h-32 rounded-full overflow-hidden mb-4 bg-gradient-to-br from-[#8B5CF6]/30 to-[#3B82F6]/20">
-            {lecturer.image ? (
-              <Image
-                src={lecturer.image}
-                alt={lecturer.name}
-                fill
-                className="object-cover"
-              />
-            ) : (
-              <div className="w-full h-full flex items-center justify-center text-4xl font-bold text-[#8B5CF6]">
-                {lecturer.name.charAt(0)}
-              </div>
-            )}
-          </div>
+          {/* Lecturer avatar with profile picture */}
+          <motion.div
+            className="relative w-36 h-36 rounded-full overflow-hidden mb-6 bg-gradient-to-br from-[#8B5CF6]/30 to-[#3B82F6]/20 shadow-lg border-2 border-white/30"
+            initial={{ scale: 0.8, opacity: 0 }}
+            whileInView={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+          >
+            <Image
+              src={lecturer.image || "/placeholder-avatar.png"}
+              alt={lecturer.name}
+              fill
+              className="object-cover transition-transform hover:scale-110 duration-300"
+            />
+          </motion.div>
 
           {/* Lecturer details with subtle animations */}
           <motion.h3
@@ -68,7 +69,7 @@ const LecturerCard: React.FC<LecturerCardProps> = ({
 
           {lecturer.title && (
             <motion.p
-              className="text-sm text-[#4B5563]"
+              className="text-sm text-[#4B5563] mb-4"
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
@@ -79,7 +80,7 @@ const LecturerCard: React.FC<LecturerCardProps> = ({
           )}
 
           <motion.div
-            className="mt-3 bg-[#F3F4F6] px-4 py-2 rounded-full text-xs font-medium text-[#4B5563]"
+            className="mt-2 px-4 py-2 rounded-full bg-gradient-to-r from-[#8B5CF6]/20 to-[#3B82F6]/20 backdrop-blur-sm text-sm font-medium text-[#1F2937]"
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}

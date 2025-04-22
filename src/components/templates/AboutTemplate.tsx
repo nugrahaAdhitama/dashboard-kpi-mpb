@@ -17,18 +17,22 @@ const teamMembers: TeamMember[] = [
   {
     name: "Samuel Halomoan Sihombing",
     nim: "2210512089",
+    image: "/profile-picture/samuel-sihombing.jpeg",
   },
   {
     name: "Muhammad Rifqi Fauzan",
     nim: "2210512095",
+    image: "/profile-picture/muhammad-rifqi.jpeg",
   },
   {
     name: "Nugraha Adhitama Haryono",
     nim: "2210512109",
+    image: "/profile-picture/nugraha-adhitama.jpeg",
   },
   {
     name: "Ikhsan Fathirizky Ramadhanu",
     nim: "2210512159",
+    image: "/profile-picture/ikhsan-fathirizky.jpeg",
   },
 ];
 
@@ -36,6 +40,7 @@ const teamMembers: TeamMember[] = [
 const lecturer: Lecturer = {
   name: "I Wayan Widi Pradnyana",
   title: "M.TI",
+  image: "/profile-picture/i-wayan-widi.jpeg",
 };
 
 // Project information
