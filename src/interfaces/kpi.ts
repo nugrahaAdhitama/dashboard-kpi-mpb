@@ -25,6 +25,16 @@ export enum DimensiKPI {
 }
 
 /**
+ * Represents the kategori for Penentuan Dosen Pengampu Mata Kuliah KPIs
+ */
+export enum KategoriKPI {
+  WAKTU = "Waktu",
+  KUALITAS = "Kualitas",
+  KEPUASAN = "Kepuasan",
+  EFISIENSI = "Efisiensi",
+}
+
+/**
  * Main interface for Key Performance Indicator (KPI)
  */
 export interface KPI {
@@ -43,6 +53,13 @@ export interface KPI {
   status: KuartilStatus;
   tren?: number; // persentase perubahan dari periode sebelumnya (jika ada)
   isHigherBetter: boolean; // true jika nilai lebih tinggi = lebih baik, false jika sebaliknya
+}
+
+/**
+ * Extended KPI interface with kategori for Penentuan Dosen Pengampu Mata Kuliah
+ */
+export interface KPIPenentuanDosen extends Omit<KPI, "dimensi"> {
+  kategori: KategoriKPI;
 }
 
 /**
@@ -101,4 +118,36 @@ export interface RadarChartData {
 export interface FilterOptions {
   dimensi: DimensiKPI | null;
   kuartil: KuartilStatus | null;
+}
+
+/**
+ * Interface for filter options with Kategori instead of Dimensi
+ */
+export interface FilterOptionsPenentuanDosen {
+  kategori: KategoriKPI | null;
+  kuartil: KuartilStatus | null;
+}
+
+/**
+ * Interface for distribusi beban kerja dosen
+ */
+export interface BebanKerjaDosen {
+  nama_dosen: string;
+  jumlah_sks: number;
+  jumlah_matkul: number;
+  standar_deviasi: number; // relatif terhadap rata-rata
+}
+
+/**
+ * Interface for bar chart data structure
+ */
+export interface BarChartData {
+  labels: string[];
+  datasets: Array<{
+    label: string;
+    data: number[];
+    backgroundColor?: string | string[];
+    borderColor?: string | string[];
+    borderWidth?: number;
+  }>;
 }
