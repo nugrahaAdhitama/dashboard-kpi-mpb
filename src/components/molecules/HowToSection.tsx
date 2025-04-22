@@ -50,7 +50,7 @@ const HowToSection: React.FC<HowToSectionProps> = ({
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
           {steps.map((step, index) => {
             const StepIcon = iconMap[step.iconName as keyof typeof iconMap];
 
@@ -62,12 +62,12 @@ const HowToSection: React.FC<HowToSectionProps> = ({
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 whileHover={{ y: -5, transition: { duration: 0.2 } }}
-                className="relative p-1 rounded-xl bg-gradient-to-br from-[#3B82F6]/30 to-[#10B981]/20"
+                className="relative p-1 rounded-xl bg-gradient-to-br from-[#3B82F6]/50 via-[#8B5CF6]/30 to-[#10B981]/40"
               >
                 {/* Glassmorphism effect */}
                 <div className="absolute inset-0 bg-white/40 backdrop-blur-sm rounded-xl"></div>
 
-                <div className="relative p-8 bg-white/80 backdrop-blur-sm rounded-lg flex flex-col items-center text-center">
+                <div className="relative h-full p-8 bg-white/80 backdrop-blur-sm rounded-lg flex flex-col items-center text-center">
                   <div className="flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-br from-[#3B82F6]/20 to-[#10B981]/10 text-[#3B82F6] mb-4">
                     <StepIcon size={32} />
                   </div>
