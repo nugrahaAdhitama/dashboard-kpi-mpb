@@ -49,12 +49,25 @@ const POBCard: React.FC<POBCardProps> = ({ pob, className = "" }) => {
           <span className="font-medium">{pob.kpiCount}</span> KPI terkait
         </div>
 
-        <Link href={`/pob/${pob.id}`}>
+        <Link href={getPOBLink(pob.id)}>
           <Button variant="primary">Lihat Detail</Button>
         </Link>
       </div>
     </div>
   );
 };
+
+// Helper function to get the correct POB link
+function getPOBLink(pobId: string): string {
+  // Map POB IDs to their specific page routes
+  const pobRoutes: Record<string, string> = {
+    "penjaminan-mutu-akademik": "/pob/penjaminan-mutu-akademik",
+    "penentuan-dosen-pengampu": "/pob/penentuan-dosen-pengampu",
+    // Add other POB routes as needed
+  };
+
+  // Return the mapped route or a fallback
+  return pobRoutes[pobId] || "/pob";
+}
 
 export default POBCard;
