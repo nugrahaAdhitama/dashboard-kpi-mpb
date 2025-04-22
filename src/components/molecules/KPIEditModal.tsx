@@ -35,6 +35,14 @@ const KPIEditModal: React.FC<KPIEditModalProps> = ({
     }
   }, [kpi]);
 
+  // Reset toast state whenever modal closes or opens
+  useEffect(() => {
+    if (!isOpen) {
+      // Reset toast when modal is closed
+      setShowToast(false);
+    }
+  }, [isOpen]);
+
   const handleAchievementChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     setAchievement(value);
@@ -70,7 +78,7 @@ const KPIEditModal: React.FC<KPIEditModalProps> = ({
     // Don't close immediately to show the toast
     setTimeout(() => {
       onClose();
-    }, 500);
+    }, 800); // Increased timeout to ensure toast is visible
   };
 
   if (!isOpen || !kpi) return null;
