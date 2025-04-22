@@ -15,6 +15,7 @@ import withLayout from "@/hoc/withLayout";
 interface LandingPageProps {
   heroTitle: string;
   heroDescription: string;
+  heroButtonText: string;
   pobSectionTitle: string;
   pobs: IPOB[];
   howToSectionTitle: string;
@@ -24,6 +25,7 @@ interface LandingPageProps {
 const LandingPage: React.FC<LandingPageProps> = ({
   heroTitle,
   heroDescription,
+  heroButtonText,
   pobSectionTitle,
   pobs,
   howToSectionTitle,
@@ -40,7 +42,11 @@ const LandingPage: React.FC<LandingPageProps> = ({
         <Breadcrumb items={breadcrumbItems} />
       </div>
 
-      <HeroSection title={heroTitle} description={heroDescription} />
+      <HeroSection
+        title={heroTitle}
+        description={heroDescription}
+        buttonText={heroButtonText}
+      />
 
       <POBSection title={pobSectionTitle} pobs={pobs} />
 
